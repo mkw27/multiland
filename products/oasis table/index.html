@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chargement — Boutique</title>
+<meta name="description" content="Livraison dans les 58 wilayas. Paiement à la livraison." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='58' font-weight='600' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+
+<!-- ⚠️ REPLACE: Meta Pixel ID -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'REPLACE_WITH_YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=REPLACE_WITH_YOUR_PIXEL_ID&ev=PageView&noscript=1" />
+</noscript>
+
+<link rel="preload" href="../../fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../../fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
+
+<link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+
+<div class="announce">
+  Livraison <strong>58 wilayas</strong> — Paiement à la livraison
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a href="../../" class="back-link">← Retour à la boutique</a>
+    <div class="logo" id="brand-logo">Boutique</div>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#produit">Produit</a>
+      <a href="#commander">Commander</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-carousel-wrap">
+        <div class="carousel" id="product-carousel" aria-roledescription="carrousel" aria-label="Photos du produit">
+          <div class="carousel-counter" aria-live="polite"><span id="carousel-current">1</span> / <span id="carousel-total">7</span></div>
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide img-slot" data-label="Photo 1">
+              <img src="images/slide-1.jpg" alt="" loading="eager" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 2">
+              <img src="images/slide-2.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 3">
+              <img src="images/slide-3.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 4">
+              <img src="images/slide-4.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 5">
+              <img src="images/slide-5.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 6">
+              <img src="images/slide-6.jpg" alt="" loading="lazy" />
+            </div>
+            <div class="carousel-slide img-slot" data-label="Photo 7">
+              <img src="images/slide-7.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+          <button type="button" class="carousel-arrow prev" id="carousel-prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button type="button" class="carousel-arrow next" id="carousel-next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Sélection de photo"></div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <span class="eyebrow" id="hero-eyebrow"></span>
+        <h1 id="hero-title"></h1>
+        <p class="hero-lead" id="hero-lead"></p>
+        <div class="price-line">
+          <span class="price-now" id="hero-price"></span>
+          <span class="price-was" id="hero-price-was" data-discount-only style="display:none;"></span>
+          <span class="price-note" id="hero-price-note" data-discount-only style="display:none;"></span>
+        </div>
+        <div class="hero-cta">
+          <a href="#commander" class="btn btn-primary">Commander</a>
+          <a href="#produit" class="btn">Détails</a>
+        </div>
+        <div class="hero-meta">
+          <span>Paiement à la livraison</span>
+          <span>Expédition en 24h</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="container trust-items">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>58 wilayas</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>À la réception</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Retour 7 jours</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Qualité vérifiée</div>
+    </div>
+  </div>
+
+  <section id="produit">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" id="detail1-eyebrow"></span>
+        <h2 id="detail1-title"></h2>
+        <p id="detail1-body"></p>
+      </div>
+
+      <div class="detail">
+        <div class="detail-img img-slot" data-label="Photo — gros plan">
+          <img src="images/detail-1.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="detail-text">
+          <span class="eyebrow" id="detail1b-eyebrow"></span>
+          <h3 id="detail1b-title"></h3>
+          <p id="detail1b-body"></p>
+          <ul class="detail-list" id="detail1b-bullets"></ul>
+        </div>
+      </div>
+
+      <div class="detail">
+        <div class="detail-text">
+          <span class="eyebrow" id="detail2-eyebrow"></span>
+          <h3 id="detail2-title"></h3>
+          <p id="detail2-body"></p>
+        </div>
+        <div class="detail-img img-slot" data-label="Photo — en situation">
+          <img src="images/detail-2.jpg" alt="" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Caractéristiques</span>
+        <h2>Ce qui le distingue.</h2>
+      </div>
+      <div class="features" id="features-grid"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Commande</span>
+        <h2>Comment ça se passe</h2>
+        <p>Aucun paiement en ligne. Vous réglez au livreur, une fois le colis entre vos mains.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Vous remplissez le formulaire</h3><p>Nom, téléphone, wilaya, adresse. Trente secondes suffisent.</p></div>
+        <div class="step"><h3>Nous vous appelons</h3><p>Un membre de notre équipe vous contacte sous 24 heures pour confirmer les détails.</p></div>
+        <div class="step"><h3>Vous payez à la réception</h3><p>Vous réglez en espèces au livreur, après avoir vérifié votre colis.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="commander" class="order-section">
+    <div class="container">
+      <div class="order-wrap">
+        <div class="section-head" style="margin-bottom: var(--sp-4);">
+          <span class="eyebrow">Commande</span>
+          <h2>Réservez votre commande</h2>
+          <p>Remplissez le formulaire. Nous vous appellerons pour confirmer.</p>
+        </div>
+
+        <div class="order-summary" id="order-summary">
+          <div class="summary-row product">
+            <span class="label-cell">Produit</span>
+            <span class="value-cell" id="summary-product">—</span>
+          </div>
+          <div class="summary-row">
+            <span class="label-cell">Quantité</span>
+            <span class="value-cell" id="summary-qty">1</span>
+          </div>
+          <div class="summary-row">
+            <span class="label-cell">Prix unitaire</span>
+            <span class="value-cell" id="summary-unit">—</span>
+          </div>
+          <div class="summary-row" id="summary-discount-row" data-discount-only style="display:none;">
+            <span class="label-cell" id="summary-discount-label">Remise</span>
+            <span class="value-cell" id="summary-discount">—</span>
+          </div>
+          <div class="summary-row" id="summary-delivery-row">
+            <span class="label-cell" id="summary-delivery-label">Livraison</span>
+            <span class="value-cell" id="summary-delivery">—</span>
+          </div>
+          <div class="summary-row total">
+            <span class="label-cell">Total à payer</span>
+            <span class="value-cell" id="summary-total">—</span>
+          </div>
+          <div class="summary-row savings" id="summary-savings-row" data-discount-only style="display:none;">
+            <span class="label-cell">Vous économisez</span>
+            <span class="value-cell" id="summary-savings">—</span>
+          </div>
+        </div>
+
+        <!-- ⚠️ REPLACE: Apps Script URL -->
+        <form
+          id="order-form"
+          action="https://script.google.com/macros/s/REPLACE_WITH_YOUR_SCRIPT_ID/exec"
+          method="POST"
+          novalidate
+        >
+          <div class="field">
+            <label>Quantité <span class="req">*</span></label>
+            <div class="quantity">
+              <button type="button" id="qty-dec" aria-label="Diminuer">−</button>
+              <input type="number" id="qty" name="quantity" value="1" min="1" readonly />
+              <button type="button" id="qty-inc" aria-label="Augmenter">+</button>
+            </div>
+            <span class="hint" id="qty-hint" data-discount-only style="display:none;"></span>
+          </div>
+
+          <div class="field">
+            <label for="wilaya">Wilaya <span class="req">*</span></label>
+            <select id="wilaya" name="wilaya" required>
+              <option value="">Sélectionnez votre wilaya</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Mode de livraison <span class="req">*</span></label>
+            <div id="mode-container">
+              <div class="mode-placeholder">Choisissez d'abord votre wilaya</div>
+            </div>
+            <input type="hidden" id="delivery-mode" name="deliveryMode" value="" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Nom complet <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Ahmed Benali" autocomplete="name" maxlength="100" required />
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0555 12 34 56" inputmode="tel" autocomplete="tel" maxlength="20" required />
+              <span class="hint">10 chiffres, commence par 05, 06 ou 07</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="address">Adresse complète <span class="req">*</span></label>
+            <input type="text" id="address" name="address" placeholder="Cité 500 logements, Bâtiment C, Appartement 12" autocomplete="street-address" maxlength="200" required />
+          </div>
+
+          <div class="field">
+            <label for="landmark">Point de repère <span class="hint">— facultatif</span></label>
+            <input type="text" id="landmark" name="landmark" placeholder="Près de la mosquée El-Nour" maxlength="150" />
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes <span class="hint">— facultatif</span></label>
+            <textarea id="notes" name="notes" placeholder="Heure d'appel préférée, précisions sur l'adresse…" maxlength="500"></textarea>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="website">Site web</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="cod-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            <div><strong>Paiement à la livraison.</strong> Vous ne payez rien maintenant. Vous réglez en espèces au livreur, après avoir vérifié votre colis.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Confirmer la commande</button>
+          <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container faq">
+      <div class="section-head" style="text-align: center; margin: 0 auto var(--sp-5);">
+        <span class="eyebrow">Questions</span>
+        <h2>Ce que vous nous demandez le plus souvent</h2>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> <span class="contact-brand">—</span> — Algérie</div>
+    <div class="footer-links">
+      <a href="#" class="contact-phone-link">—</a>
+      <a href="#faq">FAQ</a>
+      <a href="#commander">Commander</a>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#commander" class="btn btn-primary" id="sticky-cta-btn">Commander</a>
+</div>
+
+<script src="content.js"></script>
+<script>
+  (function () {
+    'use strict';
+    var C = window.CONTENT;
+    if (!C) { console.error('content.js failed to load.'); return; }
+
+    function formatPrice(amount) {
+      if (amount === null || amount === undefined) return '';
+      return Number(Math.round(amount)).toLocaleString('fr-FR') + ' DZD';
+    }
+    function setText(id, value) {
+      var el = document.getElementById(id);
+      if (el && value != null) el.textContent = value;
+    }
+
+    function discountApplies(quantity) {
+      if (!C.discountEnabled) return false;
+      if (!(C.discountPercent > 0)) return false;
+      return quantity >= C.discountMinQty;
+    }
+
+    function priceFor(quantity) {
+      var q = Math.max(1, parseInt(quantity, 10) || 1);
+      var fullPrice = q * C.unitPrice;
+      if (discountApplies(q)) {
+        var discountAmount = fullPrice * (C.discountPercent / 100);
+        return { quantity: q, fullPrice: fullPrice, subtotal: fullPrice - discountAmount, savings: discountAmount, discounted: true };
+      }
+      return { quantity: q, fullPrice: fullPrice, subtotal: fullPrice, savings: 0, discounted: false };
+    }
+
+    function deliveryFeeFor(wilaya, mode) {
+      if (!wilaya || !mode) return null;
+      var entry = C.deliveryFees[wilaya] || C.defaultDeliveryFee;
+      var fee = entry[mode];
+      return (typeof fee === 'number') ? fee : null;
+    }
+
+    /* --- Fill static content --- */
+    document.title = C.brandName + ' — ' + C.productName;
+    setText('brand-logo', C.brandName);
+    setText('hero-eyebrow', C.heroEyebrow);
+    setText('hero-title', C.heroTitle);
+    setText('hero-lead', C.heroLead);
+    setText('hero-price', formatPrice(C.unitPrice));
+
+    var heroWas = document.getElementById('hero-price-was');
+    if (heroWas && C.priceWas && C.priceWas > C.unitPrice) heroWas.textContent = formatPrice(C.priceWas);
+
+    var heroNote = document.getElementById('hero-price-note');
+    if (heroNote && C.priceNote) heroNote.textContent = C.priceNote;
+
+    setText('detail1-eyebrow', C.detail1.eyebrow);
+    setText('detail1-title', C.detail1.title);
+    setText('detail1-body', C.detail1.body);
+    setText('detail1b-eyebrow', C.detail1.eyebrow);
+    setText('detail1b-title', C.detail1.title);
+    setText('detail1b-body', C.detail1.body);
+
+    var bulletsEl = document.getElementById('detail1b-bullets');
+    if (bulletsEl && C.detail1.bullets) {
+      bulletsEl.innerHTML = '';
+      C.detail1.bullets.forEach(function (b) {
+        var li = document.createElement('li');
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M20 6L9 17l-5-5');
+        svg.appendChild(path);
+        var span = document.createElement('span');
+        span.textContent = b;
+        li.appendChild(svg);
+        li.appendChild(span);
+        bulletsEl.appendChild(li);
+      });
+    }
+
+    setText('detail2-eyebrow', C.detail2.eyebrow);
+    setText('detail2-title', C.detail2.title);
+    setText('detail2-body', C.detail2.body);
+
+    var featuresGrid = document.getElementById('features-grid');
+    if (featuresGrid && C.features) {
+      featuresGrid.innerHTML = '';
+      C.features.forEach(function (f) {
+        var div = document.createElement('div');
+        div.className = 'feature';
+        var h3 = document.createElement('h3');
+        h3.textContent = f.title;
+        var p = document.createElement('p');
+        p.textContent = f.body;
+        div.appendChild(h3);
+        div.appendChild(p);
+        featuresGrid.appendChild(div);
+      });
+    }
+
+    setText('summary-product', C.productName);
+
+    document.querySelectorAll('.contact-phone-link').forEach(function (el) {
+      el.textContent = C.contactPhone;
+      el.setAttribute('href', 'tel:' + C.contactPhoneHref);
+    });
+    document.querySelectorAll('.contact-brand').forEach(function (el) {
+      el.textContent = C.brandName;
+    });
+
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var discountOn = C.discountEnabled && C.discountPercent > 0;
+    document.querySelectorAll('[data-discount-only]').forEach(function (el) {
+      el.style.display = discountOn ? '' : 'none';
+    });
+
+    var qtyHint = document.getElementById('qty-hint');
+    if (qtyHint && discountOn) {
+      qtyHint.textContent = 'À partir de ' + C.discountMinQty + ' unités : −' + C.discountPercent + '%';
+    }
+    var discLabel = document.getElementById('summary-discount-label');
+    if (discLabel && discountOn) {
+      discLabel.textContent = 'Remise (' + C.discountPercent + '%)';
+    }
+
+    var faqList = document.getElementById('faq-list');
+    if (faqList && Array.isArray(C.faq)) {
+      faqList.innerHTML = '';
+      C.faq.forEach(function (item) {
+        var answer = item.a;
+        if (answer === 'CONTACT_AUTO') {
+          answer = 'Par téléphone au ' + C.contactPhone + ', du samedi au jeudi de 9h à 18h, ou par email à ' + C.contactEmail + '.';
+        }
+        var details = document.createElement('details');
+        var summary = document.createElement('summary');
+        summary.textContent = item.q;
+        var p = document.createElement('p');
+        p.textContent = answer;
+        details.appendChild(summary);
+        details.appendChild(p);
+        faqList.appendChild(details);
+      });
+    }
+
+    var qtyInputInit = document.getElementById('qty');
+    if (qtyInputInit) qtyInputInit.setAttribute('max', String(C.maxQty));
+
+    /* --- Carousel --- */
+    (function initCarousel() {
+      var root      = document.getElementById('product-carousel');
+      var track     = document.getElementById('carousel-track');
+      var slides    = track ? track.querySelectorAll('.carousel-slide') : [];
+      var prevBtn   = document.getElementById('carousel-prev');
+      var nextBtn   = document.getElementById('carousel-next');
+      var dotsWrap  = document.getElementById('carousel-dots');
+      var currentEl = document.getElementById('carousel-current');
+      var totalEl   = document.getElementById('carousel-total');
+      if (!root || !track || slides.length === 0) return;
+
+      var total = slides.length;
+      var index = 0;
+      totalEl.textContent = String(total);
+
+      var dots = [];
+      for (var i = 0; i < total; i++) {
+        (function (i) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot';
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+          dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+          dot.addEventListener('click', function () { goTo(i); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        })(i);
+      }
+
+      function render() {
+        track.style.transform = 'translateX(' + (-index * 100) + '%)';
+        currentEl.textContent = String(index + 1);
+        dots.forEach(function (d, i) { d.setAttribute('aria-selected', i === index ? 'true' : 'false'); });
+      }
+      function goTo(i) { index = ((i % total) + total) % total; render(); }
+
+      prevBtn.addEventListener('click', function () { goTo(index - 1); });
+      nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+      root.setAttribute('tabindex', '0');
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { goTo(index - 1); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { goTo(index + 1); e.preventDefault(); }
+      });
+
+      var tX = 0, tY = 0, tActive = false;
+      root.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        tX = e.touches[0].clientX;
+        tY = e.touches[0].clientY;
+        tActive = true;
+      }, { passive: true });
+      root.addEventListener('touchend', function (e) {
+        if (!tActive) return;
+        tActive = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - tX;
+        var dy = t.clientY - tY;
+        if (Math.abs(dx) < 40) return;
+        if (Math.abs(dy) > Math.abs(dx)) return;
+        goTo(dx < 0 ? index + 1 : index - 1);
+      }, { passive: true });
+
+      render();
+    })();
+
+    /* --- Form --- */
+    var form           = document.getElementById('order-form');
+    var submitBtn      = document.getElementById('submit-btn');
+    var msgEl          = document.getElementById('form-msg');
+    var wilayaSel      = document.getElementById('wilaya');
+    var modeContainer  = document.getElementById('mode-container');
+    var modeInput      = document.getElementById('delivery-mode');
+    var qtyInput       = document.getElementById('qty');
+    var qtyInc         = document.getElementById('qty-inc');
+    var qtyDec         = document.getElementById('qty-dec');
+    var summaryQty     = document.getElementById('summary-qty');
+    var summaryUnit    = document.getElementById('summary-unit');
+    var summaryTotal   = document.getElementById('summary-total');
+    var summaryDiscRow = document.getElementById('summary-discount-row');
+    var summaryDisc    = document.getElementById('summary-discount');
+    var summaryDel     = document.getElementById('summary-delivery');
+    var summaryDelLbl  = document.getElementById('summary-delivery-label');
+    var summarySaveRow = document.getElementById('summary-savings-row');
+    var summarySave    = document.getElementById('summary-savings');
+    var stickyBtn      = document.getElementById('sticky-cta-btn');
+    var nameEl         = document.getElementById('name');
+    var phoneEl        = document.getElementById('phone');
+    var addressEl      = document.getElementById('address');
+    var honeypotEl     = document.getElementById('website');
+
+    Object.keys(C.deliveryFees).forEach(function (w) {
+      var opt = document.createElement('option');
+      opt.value = w;
+      opt.textContent = w;
+      wilayaSel.appendChild(opt);
+    });
+
+    function renderModeOptions() {
+      if (!modeContainer || !wilayaSel) return;
+      modeContainer.innerHTML = '';
+      var w = wilayaSel.value;
+      if (!w) {
+        modeInput.value = '';
+        modeContainer.innerHTML = '<div class="mode-placeholder">Choisissez d\'abord votre wilaya</div>';
+        return;
+      }
+      var fees = C.deliveryFees[w] || C.defaultDeliveryFee;
+      [['domicile', 'À domicile', 'Livré à votre adresse'],
+       ['bureau',   'Au bureau',   'Retrait au bureau du transporteur']
+      ].forEach(function (spec) {
+        var mode = spec[0], label = spec[1], desc = spec[2];
+        var fee = fees[mode];
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mode-option';
+        btn.dataset.mode = mode;
+        var l = document.createElement('span'); l.className = 'mode-label'; l.textContent = label;
+        var d = document.createElement('span'); d.className = 'mode-desc'; d.textContent = desc;
+        var p = document.createElement('span'); p.className = 'mode-price';
+        p.textContent = fee != null ? '+ ' + formatPrice(fee) : 'Indisponible';
+        btn.appendChild(l); btn.appendChild(d); btn.appendChild(p);
+        if (fee == null) { btn.classList.add('disabled'); btn.disabled = true; }
+        else { btn.addEventListener('click', function () { modeInput.value = mode; updateTotal(); }); }
+        modeContainer.appendChild(btn);
+      });
+    }
+
+    function updateTotal() {
+      if (!qtyInput || !summaryTotal || !submitBtn) return;
+      var q = Math.max(1, Math.min(C.maxQty, parseInt(qtyInput.value, 10) || 1));
+      qtyInput.value = q;
+      var pricing = priceFor(q);
+      var wilaya = wilayaSel ? wilayaSel.value : '';
+      var mode   = modeInput ? modeInput.value : '';
+      var fee    = deliveryFeeFor(wilaya, mode);
+
+      if (summaryQty)  summaryQty.textContent = String(q);
+      if (summaryUnit) summaryUnit.textContent = formatPrice(C.unitPrice);
+
+      if (summaryDiscRow && summaryDisc) {
+        if (pricing.discounted) { summaryDiscRow.style.display = ''; summaryDisc.textContent = formatPrice(pricing.savings); }
+        else { summaryDiscRow.style.display = 'none'; }
+      }
+
+      if (summaryDel && summaryDelLbl) {
+        if (fee != null) {
+          summaryDel.textContent = formatPrice(fee);
+          summaryDelLbl.textContent = mode === 'bureau' ? 'Livraison (bureau)' : 'Livraison (domicile)';
+        } else {
+          summaryDel.textContent = '—';
+          summaryDelLbl.textContent = 'Livraison';
+        }
+      }
+
+      var grandTotal = pricing.subtotal + (fee != null ? fee : 0);
+      summaryTotal.textContent = formatPrice(grandTotal);
+      submitBtn.textContent = 'Confirmer la commande — ' + formatPrice(grandTotal);
+      if (stickyBtn) stickyBtn.textContent = 'Commander — ' + formatPrice(grandTotal);
+
+      if (summarySaveRow && summarySave) {
+        if (pricing.discounted) { summarySaveRow.style.display = ''; summarySave.textContent = formatPrice(pricing.savings) + ' sur ce lot'; }
+        else { summarySaveRow.style.display = 'none'; }
+      }
+
+      if (modeContainer) {
+        modeContainer.querySelectorAll('.mode-option').forEach(function (card) {
+          card.classList.toggle('active', card.dataset.mode === mode);
+        });
+      }
+    }
+
+    qtyInc.addEventListener('click', function () {
+      var q = parseInt(qtyInput.value, 10) || 1;
+      if (q < C.maxQty) { qtyInput.value = q + 1; updateTotal(); }
+    });
+    qtyDec.addEventListener('click', function () {
+      var q = parseInt(qtyInput.value, 10) || 1;
+      if (q > 1) { qtyInput.value = q - 1; updateTotal(); }
+    });
+    wilayaSel.addEventListener('change', function () {
+      modeInput.value = '';
+      renderModeOptions();
+      updateTotal();
+    });
+
+    renderModeOptions();
+    updateTotal();
+
+    function normalizePhone(raw) {
+      var digits = (raw || '').replace(/[^\d]/g, '');
+      if (digits.indexOf('213') === 0 && digits.length === 12) digits = '0' + digits.slice(3);
+      return digits;
+    }
+    function validateAlgerianPhone(raw) { return /^0(5|6|7)\d{8}$/.test(normalizePhone(raw)); }
+
+    function validateForm() {
+      var name    = (nameEl.value || '').trim();
+      var phone   = (phoneEl.value || '').trim();
+      var wilaya  = wilayaSel.value;
+      var mode    = modeInput.value;
+      var address = (addressEl.value || '').trim();
+      if (name.length < 2)      return "Veuillez saisir votre nom complet.";
+      if (name.length > 100)    return "Le nom est trop long.";
+      if (!validateAlgerianPhone(phone)) return "Numéro de téléphone invalide. Il doit comporter 10 chiffres et commencer par 05, 06 ou 07.";
+      if (!wilaya)              return "Veuillez sélectionner votre wilaya.";
+      if (!mode)                return "Veuillez choisir un mode de livraison.";
+      if (address.length < 5)   return "Veuillez saisir une adresse complète (5 caractères minimum).";
+      if (address.length > 200) return "L'adresse est trop longue.";
+      return null;
+    }
+    function setMessage(text, type) {
+      if (!msgEl) return;
+      msgEl.textContent = text;
+      msgEl.className = 'form-msg show ' + (type || '');
+    }
+
+    if (!form) return;
+
+    var endpoint = form.getAttribute('action');
+    var isConfigured = endpoint && endpoint.indexOf('REPLACE_WITH_YOUR_SCRIPT_ID') === -1;
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if ((honeypotEl.value || '').length > 0) {
+        setMessage("Merci. Votre commande a bien été reçue.", "success");
+        form.reset(); qtyInput.value = 1; modeInput.value = ''; renderModeOptions(); updateTotal();
+        return;
+      }
+      var error = validateForm();
+      if (error) { setMessage(error, "error"); return; }
+      if (!isConfigured) {
+        setMessage("Le formulaire n'est pas encore configuré. Appelez-nous au " + C.contactPhone + " pour finaliser votre commande.", "error");
+        return;
+      }
+      submitBtn.disabled = true;
+      var originalLabel = submitBtn.textContent;
+      submitBtn.textContent = "Envoi en cours…";
+      setMessage("", "");
+
+      var qty = parseInt(qtyInput.value, 10) || 1;
+      var pricing = priceFor(qty);
+      var mode = modeInput.value;
+      var fee = deliveryFeeFor(wilayaSel.value, mode);
+      var grandTotal = pricing.subtotal + (fee != null ? fee : 0);
+
+      var payload = {
+        contentVersion:  C.version,
+        clientTimestamp: new Date().toISOString(),
+        clientTotal:     grandTotal,
+        productSlug:     C.productSlug,
+        name:            (nameEl.value || '').trim(),
+        phone:           normalizePhone(phoneEl.value),
+        wilaya:          wilayaSel.value,
+        deliveryMode:    mode,
+        address:         (addressEl.value || '').trim(),
+        landmark:        (document.getElementById('landmark').value || '').trim(),
+        quantity:        qty,
+        notes:           (document.getElementById('notes').value || '').trim(),
+        product:         C.productName,
+        page:            window.location.href
+      };
+
+      var controller = new AbortController();
+      var timeoutId = setTimeout(function () { controller.abort(); }, 15000);
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      })
+        .then(function (response) {
+          clearTimeout(timeoutId);
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json().catch(function () { return { ok: true }; });
+        })
+        .then(function (data) {
+          if (data && data.ok === false) throw new Error(data.error || "Erreur inconnue");
+          setMessage("Votre commande a bien été reçue. Nous vous appellerons dans les 24 heures pour confirmer la livraison.", "success");
+          if (typeof window.fbq === 'function' && window.fbq.loaded) {
+            window.fbq('track', 'Lead', {
+              content_name: C.productName,
+              value: grandTotal,
+              currency: 'DZD',
+              num_items: qty
+            });
+          }
+          form.reset(); qtyInput.value = 1; modeInput.value = ''; renderModeOptions(); updateTotal();
+          msgEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function (err) {
+          clearTimeout(timeoutId);
+          var isTimeout = err && err.name === 'AbortError';
+          var prefix = isTimeout ? "La connexion a pris trop de temps." : "Impossible d'envoyer votre commande.";
+          setMessage(prefix + " Veuillez réessayer, ou appelez-nous au " + C.contactPhone + ".", "error");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+    });
+
+    (function initPixelEvents() {
+      if (typeof window.fbq !== 'function' || !window.fbq.loaded) return;
+      if (typeof IntersectionObserver !== 'function') return;
+      var carousel = document.getElementById('product-carousel');
+      if (!carousel) return;
+      var fired = false;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !fired) {
+            fired = true;
+            window.fbq('track', 'ViewContent', {
+              content_name: C.productName,
+              content_type: 'product',
+              value: C.unitPrice,
+              currency: 'DZD'
+            });
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(carousel);
+    })();
+
+    (function initInitiateCheckout() {
+      if (typeof window.fbq !== 'function' || !window.fbq.loaded) return;
+      var firstField = document.getElementById('name');
+      if (!firstField) return;
+      var fired = false;
+      firstField.addEventListener('focus', function () {
+        if (fired) return;
+        fired = true;
+        window.fbq('track', 'InitiateCheckout', {
+          content_name: C.productName,
+          value: C.unitPrice,
+          currency: 'DZD'
+        });
+      }, { once: true });
+    })();
+
+  })();
+</script>
+
+</body>
+</html>
