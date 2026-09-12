@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boutique — Nos produits</title>
+<meta name="description" content="Découvrez notre sélection. Livraison dans les 58 wilayas. Paiement à la livraison." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='58' font-weight='600' fill='%23fff' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+
+<link rel="preload" href="fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
+
+<style>
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Inter'; src: url('fonts/inter-semibold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+
+  :root {
+    --paper:        #ffffff;
+    --paper-warm:   #faf8f4;
+    --ink:          #000000;
+    --ink-soft:     #3f3f3f;
+    --muted:        rgba(0, 0, 0, 0.6);
+    --muted-soft:   rgba(0, 0, 0, 0.4);
+    --line:         rgba(0, 0, 0, 0.1);
+    --line-mid:     rgba(0, 0, 0, 0.2);
+    --radius:       10px;
+    --max-width:    1200px;
+    --fs-xs:   0.75rem;
+    --fs-sm:   0.8125rem;
+    --fs-base: 0.9375rem;
+    --fs-lg:   1.0625rem;
+    --fs-xl:   1.25rem;
+    --fs-2xl:  1.5rem;
+    --fs-3xl:  2rem;
+    --fs-4xl:  clamp(2rem, 4vw, 2.75rem);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --sp-1: 8px; --sp-2: 16px; --sp-3: 24px; --sp-4: 32px;
+    --sp-5: 48px; --sp-6: 64px; --sp-7: 88px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; font-family: var(--font); font-size: var(--fs-base);
+    line-height: 1.6; color: var(--ink); background: var(--paper-warm);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--ink); text-decoration: none; transition: opacity 0.15s ease; }
+  a:hover { opacity: 0.55; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--sp-3); }
+
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: var(--sp-2) 0;
+    background: var(--paper-warm);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 600; font-size: var(--fs-lg); letter-spacing: -0.01em; }
+
+  .home-hero {
+    padding: var(--sp-6) 0 var(--sp-5);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .home-hero h1 {
+    font-size: var(--fs-4xl); font-weight: 600;
+    letter-spacing: -0.03em; line-height: 1.05;
+    margin: 0 0 var(--sp-2);
+  }
+  .home-hero p { font-size: var(--fs-lg); color: var(--muted); margin: 0; }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--sp-4);
+    padding: var(--sp-5) 0 var(--sp-7);
+  }
+  .product-tile {
+    display: flex; flex-direction: column;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .product-tile:hover {
+    border-color: var(--line-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    opacity: 1;
+  }
+  .tile-image {
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, #f0ede6 0%, #e0dcd2 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .tile-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile-image:not(:has(img))::after {
+    content: attr(data-label);
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--fs-xs); font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted-soft);
+    background: rgba(255,255,255,0.7);
+    padding: 6px 12px; border-radius: 100px;
+  }
+  .tile-body {
+    padding: var(--sp-3);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .tile-title {
+    font-size: var(--fs-lg); font-weight: 600;
+    letter-spacing: -0.01em; margin: 0; color: var(--ink);
+  }
+  .tile-desc { font-size: var(--fs-sm); color: var(--muted); line-height: 1.5; margin: 0; }
+  .tile-price { font-size: var(--fs-base); font-weight: 600; color: var(--ink); margin-top: 6px; }
+
+  .empty-state { padding: var(--sp-7) 0; text-align: center; color: var(--muted); font-size: var(--fs-lg); }
+
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: var(--sp-5) 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: var(--fs-sm);
+  }
+  footer.site a { color: var(--muted); text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <div class="logo" id="brand-logo">Boutique</div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="home-hero">
+      <h1 id="home-title">Nos produits</h1>
+      <p id="home-subtitle">Découvrez notre sélection.</p>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+    <div class="empty-state" id="empty-state" style="display:none;">Aucun produit à afficher pour le moment.</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div id="footer-brand">Boutique</div>
+    <div style="margin-top: 8px;">
+      <a href="#" id="footer-phone">—</a> · <a href="#" id="footer-email">—</a>
+    </div>
+  </div>
+</footer>
+
+<script src="content-home.js"></script>
+<script>
+  (function () {
+    'use strict';
+    var HOME = window.HOME_CONTENT;
+    if (!HOME) { console.error('content-home.js failed to load.'); return; }
+
+    function setText(id, value) {
+      var el = document.getElementById(id);
+      if (el && value != null) el.textContent = value;
+    }
+
+    document.title = HOME.brandName + ' — ' + HOME.pageTitle;
+    setText('brand-logo', HOME.brandName);
+    setText('home-title', HOME.pageTitle);
+    setText('home-subtitle', HOME.subtitle);
+    setText('footer-brand', HOME.brandName);
+
+    var phone = document.getElementById('footer-phone');
+    if (phone) { phone.textContent = HOME.contactPhone; phone.href = 'tel:' + HOME.contactPhoneHref; }
+    var email = document.getElementById('footer-email');
+    if (email) { email.textContent = HOME.contactEmail; email.href = 'mailto:' + HOME.contactEmail; }
+
+    var grid = document.getElementById('product-grid');
+    var empty = document.getElementById('empty-state');
+    if (!grid) return;
+    var products = Array.isArray(HOME.products) ? HOME.products : [];
+    if (products.length === 0) { grid.style.display = 'none'; if (empty) empty.style.display = ''; return; }
+
+    grid.innerHTML = '';
+    products.forEach(function (p) {
+      var tile = document.createElement('a');
+      tile.className = 'product-tile';
+      tile.href = p.link;
+
+      var imgWrap = document.createElement('div');
+      imgWrap.className = 'tile-image';
+      imgWrap.setAttribute('data-label', p.title);
+      if (p.image) {
+        var img = document.createElement('img');
+        img.src = p.image;
+        img.alt = p.title;
+        img.loading = 'lazy';
+        imgWrap.appendChild(img);
+      }
+
+      var body = document.createElement('div');
+      body.className = 'tile-body';
+
+      var h3 = document.createElement('h3');
+      h3.className = 'tile-title';
+      h3.textContent = p.title;
+      body.appendChild(h3);
+
+      if (p.description) {
+        var desc = document.createElement('p');
+        desc.className = 'tile-desc';
+        desc.textContent = p.description;
+        body.appendChild(desc);
+      }
+      if (p.price) {
+        var price = document.createElement('div');
+        price.className = 'tile-price';
+        price.textContent = p.price;
+        body.appendChild(price);
+      }
+
+      tile.appendChild(imgWrap);
+      tile.appendChild(body);
+      grid.appendChild(tile);
+    });
+  })();
+</script>
+
+</body>
+</html>
